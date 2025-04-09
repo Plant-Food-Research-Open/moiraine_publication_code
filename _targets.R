@@ -19,7 +19,6 @@ tar_option_set(
 
 source(here("helper_functions.R"))
 
-## List of targets
 list(
 
   ##==============##
@@ -643,6 +642,10 @@ list(
     )
   ),
 
+  ##===============================##
+  ## Manuscript figures and tables ----
+  ##===============================##
+  
   tar_target(
     suppl_figure_consensus_metrics,
     moiraine::show_consensus_metrics()

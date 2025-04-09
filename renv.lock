@@ -1899,23 +1899,6 @@
       ],
       "Hash": "df58958f293b166e4ab885ebcad90e02"
     },
-    "openxlsx": {
-      "Package": "openxlsx",
-      "Version": "4.2.8",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "Requirements": [
-        "R",
-        "Rcpp",
-        "grDevices",
-        "methods",
-        "stats",
-        "stringi",
-        "utils",
-        "zip"
-      ],
-      "Hash": "0dae94b258dc5abc4713eacdbbebcb51"
-    },
     "patchwork": {
       "Package": "patchwork",
       "Version": "1.2.0",
@@ -2860,13 +2843,6 @@
       "Source": "Repository",
       "Repository": "RSPM",
       "Hash": "29240487a071f535f5e5d5a323b7afbd"
-    },
-    "zip": {
-      "Package": "zip",
-      "Version": "2.3.1",
-      "Source": "Repository",
-      "Repository": "RSPM",
-      "Hash": "fcc4bd8e6da2d2011eb64a5e5cc685ab"
     },
     "zlibbioc": {
       "Package": "zlibbioc",
