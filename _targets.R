@@ -2,6 +2,7 @@ library(targets)
 library(tarchetypes)
 library(moiraine)
 library(here)
+library(autometric)
 
 tar_option_set(
   packages = c(
@@ -17,10 +18,14 @@ tar_option_set(
   )
 )
 
-source(here("helper_functions.R"))
+source(here("R/pipeline_helper_functions.R"))
+
+#unlink("autometric.log")
+if (tar_active()) {
+  log_start(path = "autometric.log", seconds = 1)
+}
 
 list(
-
   ##==============##
   ## Data loading ----
   ##==============##

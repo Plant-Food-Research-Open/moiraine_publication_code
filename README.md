@@ -22,6 +22,13 @@ renv::restore()
 
 # Execute the targets pipeline
 targets::tar_make()
+
+# Save the autometric log (to avoid overriding it when running the pipeline
+# again)
+fs::file_move("autometric.log", "output/autometric_main_targets.log")
+
+# Generate figures for the manuscript (will be saved into output/ folder)
+source("make_manuscript_figures.R")
 ```
 
 If you are not familiar with the `targets` package, you can learn about it in the [targets user manual](https://books.ropensci.org/targets/).
