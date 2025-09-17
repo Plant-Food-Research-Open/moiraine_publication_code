@@ -1,0 +1,53 @@
+name|type|data|command|depend|seed|path|time|size|bytes|format|repository|iteration|parent|children|seconds|warnings|error
+status_colors|object|10fd1789c9064bc6
+spls_table_optim_keepX|function|7ab8ec221a06712e
+make_integration_suppl_tables|function|9b4cda2ee9acdb0b
+make_prefiltering_comparison_plot|function|937fe4e1984f0841
+make_methods_comparison_plot|function|b9d13fc78c006cd4
+make_prefiltering_suppl_table|function|b4c9f121b7106447
+make_mofa_enrichment_table|function|8a9d850e7c069d7e
+make_mofa_features_plot|function|8c525cf5ecac432a
+make_composite_pca_plot|function|b44b257b14159363
+make_integration_samples_score_plot|function|0d1ea2dbdf612ccb
+fmetadata_file_geno_full|stem|0307be50a57013ec|77e1bce38e4c2af8|2c530c1562a7fbd1|918123183|/powerplant/workspace/hrpoab/github/moiraine_publication_code/data/li_genomics_features_metadata.csv|t20347.9382480973s|3041e0fb9653079c|4402316|file|local|vector|||0.79||
+dataset_file_geno_reduced|stem|08b634e8125402e0|99456da6b9793b92|2c530c1562a7fbd1|1164211454|/powerplant/workspace/hrpoab/RENV_CACHE/v5/R-4.2/x86_64-pc-linux-gnu/moiraine/1.0.0.9000/86dd1801c163e21332d18e17103370cb/moiraine/extdata/genomics_dataset.csv|t20347.9216670775s|e96edcfc6133282a|6850822|file|local|vector|||0.004||
+dataset_file_geno_full|stem|18258859f157b9b2|50d0e48ea629b6ad|2c530c1562a7fbd1|1093261311|/powerplant/workspace/hrpoab/github/moiraine_publication_code/data/li_genomics_data.csv|t20347.9382412956s|3c877e15c40f9aa7|25464607|file|local|vector|||0.001||
+reduced_splsda_spec|stem|2048f5bab4255a1d|170e6e3d6e8df0c9|2c530c1562a7fbd1|-704617400||t20348.0223933689s|2cbdbb0ff1663637|187|rds|local|group||reduced_splsda_spec_6c7f1b849a414492|0.012||
+full_splsda_spec|stem|21e80e535b344ba4|362edb45c6be7eb5|2c530c1562a7fbd1|-753379199||t20348.022393842s|73f97d7e8bcd8e4b|189|rds|local|group||full_splsda_spec_db69f177377d3290|0.008||
+smetadata_file_all|stem|70041c5b25c49219|3d58e49fd8541180|2c530c1562a7fbd1|-715721292|/powerplant/workspace/hrpoab/RENV_CACHE/v5/R-4.2/x86_64-pc-linux-gnu/moiraine/1.0.0.9000/86dd1801c163e21332d18e17103370cb/moiraine/extdata/samples_info.csv|t20347.9216757479s|4f3a9ff818b378bf|7964|file|local|vector|||0||
+fmetadata_file_geno_reduced|stem|86c85c747ae92c5a|0ea4cbb95e09aad9|2c530c1562a7fbd1|230140206|/powerplant/workspace/hrpoab/RENV_CACHE/v5/R-4.2/x86_64-pc-linux-gnu/moiraine/1.0.0.9000/86dd1801c163e21332d18e17103370cb/moiraine/extdata/genomics_features_info.csv|t20347.9216741373s|0c278df361f9f99f|1669543|file|local|vector|||0.003||
+fmetadata_geno_full|stem|a230a2f449f42bf3|5aaadecfb0024372|f9dba983665dd1d4|-363440152||t20348.0224155711s|ee872c3ef3e64f3c|1374177|rds|local|vector|||1.367||
+data_geno_reduced|stem|8bd14981afbef3c6|71ace4bcbec1a558|c0e7e0e1b1834f6f|-362720964||t20348.0224301649s|33af15239745b32b|1616600|rds|local|vector|||0.373||
+data_geno_full|stem|0fc114d3fbfc3729|702beb252c35dc97|aebadf7e11bdaa4e|-1280391148||t20348.0224959801s|641e788e81eb8861|5874677|rds|local|vector|||2.541||
+smetadata_all|stem|d44faf48bd63c2d9|d18229032d9021fc|8ac5f333f2c76b10|-1545489823||t20348.0224973488s|9de5af3f6d46a615|4516|rds|local|vector|||0.068||
+fmetadata_geno_reduced|stem|d440af1affc6eb1c|ffd432d98932610b|1c66d440bdc39cab|861311815||t20348.0225002533s|f5b59995bcf4625d|411494|rds|local|vector|||0.091||
+set_geno_full|stem|324fcf68d5637b56|6ef178ba1c5abaf0|e42f18de73bc7cf9|-2142980271||t20348.0225673551s|34bc6458e1183ed9|7699067|rds|local|vector|||0.908|5 samples in samples metadata not in dataset, will be removed from metadata.|
+set_geno_reduced|stem|df361accf79bc8f1|eb524e972d2207e8|6bcc71dec667348e|-1851758465||t20348.0225836817s|b4571c1ee02e8be4|2174736|rds|local|vector|||0.162|5 samples in samples metadata not in dataset, will be removed from metadata.|
+mo_set_full|stem|db587f7758252191|ab8efd25017e1333|59d946d941d06b76|1729621563||t20348.0227134077s|217c8a2c59fef843|31631095|rds|local|vector|||0.122||
+mo_set_reduced|stem|ea38bb6c884f5029|c767a73665cfe5b3|f4b9093f80e8d8a9|1861950609||t20348.0227572937s|397703d63632c5e9|9664576|rds|local|vector|||0.09||
+full_dataset_names_pca|stem|1160d19a09ac4f5d|a6fa007c56e9eeec|afaea28b027b93b3|-1256254302||t20348.0227590123s|02266e49b6c0390d|57|rds|local|vector||full_dataset_names_pca_99ebdcec472e9494|0||
+reduced_dataset_names_pca|stem|1160d19a09ac4f5d|5f47ad18ab3ded46|86e8c9c049096bc4|1247011768||t20348.0227595609s|02266e49b6c0390d|57|rds|local|vector||reduced_dataset_names_pca_99ebdcec472e9494|0||
+full_pca_mats_list_9432def9a48fb70a|branch|42a65574946a0a03|d0af7352ea3741e8|afaea28b027b93b3|-360895346||t20348.0227971907s|3f4acef7dd4ede8c|5874718|rds|local|list|full_pca_mats_list||0.005||
+full_pca_mats_list|pattern|aaccae411b9cc62c|d0af7352ea3741e8||784948251||||5874718|rds|local|list||full_pca_mats_list_9432def9a48fb70a|0.005||
+reduced_pca_mats_list_7955960bccd2e7a9|branch|79149c8098f1a3a0|7200af5c1c525470|86e8c9c049096bc4|-1142339677||t20348.022821912s|a3add2c71adf3f78|1616638|rds|local|list|reduced_pca_mats_list||0.147||
+reduced_pca_mats_list|pattern|0d86d9622e41498a|7200af5c1c525470||966197775||||1616638|rds|local|list||reduced_pca_mats_list_7955960bccd2e7a9|0.147||
+full_pca_runs_list_8d0adf5d10a0e451|branch|2f88a4509609083e|e796e1825037b956|8b281a1d213b0fff|-80467572||t20348.0301585823s|7c025ff2009f5769|13551569|rds|local|list|full_pca_runs_list||630.315||
+full_pca_runs_list|pattern|dd3a5372a941c3f3|e796e1825037b956||-934889669||||13551569|rds|local|list||full_pca_runs_list_8d0adf5d10a0e451|630.315||
+reduced_pca_runs_list_617770eb0cd2c975|branch|6f5d34ce0773006e|5aa1eb9c55a954aa|6c8d95abbfae830f|1438782464||t20348.0316163847s|dd1805982f3ffef4|3746138|rds|local|list|reduced_pca_runs_list||123.665||
+reduced_pca_runs_list|pattern|7c563a62e6380133|5aa1eb9c55a954aa||-1750465268||||3746138|rds|local|list||reduced_pca_runs_list_617770eb0cd2c975|123.665||
+mo_set_complete_full|stem|05c3e4cc978927ba|324bfd2451370f7d|528c379b66c6919c|2146783003||t20348.0317161509s|d08243f277815f52|16601781|rds|local|vector|||1.618||
+mo_set_complete_reduced|stem|9aaf6c2722451cca|f9678060a2d380ff|61be5dc2fec09f72|591272456||t20348.0317491861s|dd86ac0d43e558e1|5120392|rds|local|vector|||0.472||
+full_individual_splsda_input_8e65931aa0bb7911|branch|29422412ba654482|aa73a2759ffd6624|a4a486be0dfbb568|-2048995247||t20348.0317934556s|389b76e3ccb68f92|5814285|rds|local|list|full_individual_splsda_input||1.231||
+full_individual_splsda_input|pattern|5c23d4cfbfd0c7a9|aa73a2759ffd6624||-1774037649||||5814285|rds|local|list||full_individual_splsda_input_8e65931aa0bb7911|1.231||
+reduced_individual_splsda_input_a0f4998ade47c427|branch|0132b70a30cc154a|cb3e603f0b5c625f|97eb77c82940f0b0|-1219691102||t20348.0318064753s|0b18d3b602f65d92|1597259|rds|local|list|reduced_individual_splsda_input||0.355||
+reduced_individual_splsda_input|pattern|200cfa11f7540be2|cb3e603f0b5c625f||1909466522||||1597259|rds|local|list||reduced_individual_splsda_input_a0f4998ade47c427|0.355||
+full_individual_splsda_perf_f50a157ce556265c|branch|f85101fb2f3ed1f7|e0aee696c5463de7|616008ddb1926ba1|-1783709968||t20348.0777041516s|1f7b0333cdb090cb|564895|rds|local|list|full_individual_splsda_perf||3965.452||
+full_individual_splsda_perf|pattern|3aecb6af72773b7e|e0aee696c5463de7||305253647||||564895|rds|local|list||full_individual_splsda_perf_f50a157ce556265c|3965.452||
+reduced_individual_splsda_perf_6958a2ca72e0b0c3|branch|0cb84f05fca8ab86|144aa574904f3ea6|f01c4625468cd172|1193008724||t20348.0887264776s|9434480ac9ed0f73|565251|rds|local|list|reduced_individual_splsda_perf||952.22||
+reduced_individual_splsda_perf|pattern|4d8d870f8d027b01|144aa574904f3ea6||-1033679487||||565251|rds|local|list||reduced_individual_splsda_perf_6958a2ca72e0b0c3|952.22||
+full_individual_splsda_run_e58c64b6ddf76aaf|branch|a170e1a705844e5e|511b1503ce0d7187|804db500f6fc0231|-1117785275||t20348.0888004237s|52fa6efbcc41be60|17211379|rds|local|list|full_individual_splsda_run||1.793|Unknown or uninitialised column sr.|
+full_individual_splsda_run|pattern|a457570643736147|511b1503ce0d7187||1813735446||||17211379|rds|local|list||full_individual_splsda_run_e58c64b6ddf76aaf|1.793||
+reduced_individual_splsda_run_d5c6fa3c85ec15cb|branch|d1aa2a89083b5990|bac46d7fdd35441f|f2fb50843b4ee8c2|1086779765||t20348.0888213842s|f02c0e325dd88a41|4784427|rds|local|list|reduced_individual_splsda_run||0.451|Unknown or uninitialised column sr.|
+reduced_individual_splsda_run|pattern|119bc5168b2aef29|bac46d7fdd35441f||178199045||||4784427|rds|local|list||reduced_individual_splsda_run_d5c6fa3c85ec15cb|0.451||
+mo_presel_supervised_full|stem|c12b8aa55dc8da41|5f84a34229728505|2e35d84c03a14e55|-372552733||t20348.0889020168s|43b935bed5a52a32|14702508|rds|local|vector|||0.117||
+mo_presel_supervised_reduced|stem|c5a67d4b6572942e|7a150a39c60621f4|4264492d1c1f6c7b|-2029367152||t20348.0889330346s|60c4cb9146daee8a|4644991|rds|local|vector|||0.048||

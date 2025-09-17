@@ -1,0 +1,8 @@
+main:
+  script: _targets.R
+  store: _targets
+  reporter_make: verbose_positives
+li_genomics:
+  script: _targets_li_genomics.R
+  store: _targets_li_genomics
+  reporter_make: verbose_positives
