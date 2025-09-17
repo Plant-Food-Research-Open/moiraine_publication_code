@@ -49,16 +49,38 @@ write_suppl_tables <- function(df_list, output_file) {
 
 #' Plot memory usage of targets pipeline.
 #'
-#' @param logfile Character, path to the log file written by the `autometric
-#'   package`.
+#' @param logfile Character, path to the log file written by the `autometric`
+#'   package.
+#' @param tarmetafile Character, path to the csv file containing the
+#'   `targets::tar_meta()` output.
 #' @returns A ggplot.
-make_autoplot_figure <- function(logfile) {
+make_autoplot_figure <- function(logfile, tarmetafile) {
   df_autometric <- autometric::log_read(logfile, units_memory = "gigabytes") |> 
     dplyr::mutate(time = time / 60)
-  
-  df_targets <- targets::tar_meta() |> 
+
+  df_targets <- readr::read_csv(tarmetafile, show_col_types = FALSE) |> 
     dplyr::filter(!(type %in% c("function", "object"))) |> 
-    dplyr::select(name, type, time, bytes, seconds)
+    dplyr::select(name, type, time, bytes, seconds) |> 
+    dplyr::mutate(
+      type = dplyr::case_when(
+        stringr::str_detect(name, "individual_splsda_perf_") ~ "stem",
+        TRUE ~ type
+      ),
+      name = dplyr::case_match(
+        name,
+        "individual_splsda_perf_c34ab0eca3a30184" ~ "individual_splsda_perf_snps",
+        "individual_splsda_perf_782547ad94da4194" ~ "individual_splsda_perf_rnaseq", 
+        .default = name
+      )
+    ) |> 
+    dplyr::filter(!(name %in% c("individual_splsda_perf")))
+  
+  # To figure out which branch corresponds to which dataset
+  # df_targets |> 
+  #   dplyr::filter(type == "branch") |>
+  #   dplyr::pull(name) |> 
+  #   rlang::set_names() |> 
+  #   purrr::map(\(x) attr(tar_read_raw(x), "dataset_name"))
   
   df_branch <- df_targets |> 
     dplyr::filter(type == "branch") |> 
@@ -83,9 +105,8 @@ make_autoplot_figure <- function(logfile) {
   df_labels <- df_targets |> 
     dplyr::filter(seconds > 300) |> 
     dplyr::mutate(
-      #n = 1:dplyr::n(),
-      #resident = (max(df_autometric$resident) / 2) + 0.3 * n
-      resident = c(1, 2.1, 2.75)
+      n = 1:dplyr::n(),
+      resident = (max(df_autometric$resident) / 2) + 0.3 * n
     )
   
   df_autometric |> 

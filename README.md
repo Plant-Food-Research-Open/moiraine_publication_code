@@ -20,15 +20,20 @@ In order to reproduce the analysis, run the following commands in R (from the pr
 # Install necessary packages with correct version
 renv::restore()
 
-# Execute the targets pipeline
+# Execute the targets pipeline (for main paper analysis)
+Sys.setenv(TAR_PROJECT = "main")
 targets::tar_make()
 
 # Save the autometric log (to avoid overriding it when running the pipeline
 # again)
 fs::file_move("autometric.log", "output/autometric_main_targets.log")
+targets::tar_meta() |> readr::write_csv("output/meta_main_targets.csv")
 
 # Generate figures for the manuscript (will be saved into output/ folder)
 source("make_manuscript_figures.R")
+
+# Prepare datasets for additional example datasets
+source("prepare_datasets.R")
 ```
 
 If you are not familiar with the `targets` package, you can learn about it in the [targets user manual](https://books.ropensci.org/targets/).
