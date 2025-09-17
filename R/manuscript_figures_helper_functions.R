@@ -135,3 +135,56 @@ make_autoplot_figure <- function(logfile, tarmetafile) {
     ) +
     ggplot2::theme_bw()
 }
+
+#' Plot running time for reduced vs full genomics dataset.
+#'
+#' @param logfile Character, path to the log file written by the `autometric`
+#'   package.
+#' @param tarmetafile Character, path to the csv file containing the
+#'   `targets::tar_meta()` output.
+#' @returns A ggplot.
+make_figure_runtime_genomics <- function(logfile, tarmetafile) {
+  readr::read_csv(tarmetafile, show_col_types = FALSE) |> 
+    dplyr::filter(stringr::str_detect(name, "((pca_runs_list)|(individual_splsda_perf))$")) |> 
+    dplyr::mutate(
+      task = stringr::str_extract(name, "(pca)|(splsda)"),
+      task = factor(task, levels = c("pca", "splsda"), labels = c("PCA", "sPLSDA")),
+      dataset = stringr::str_extract(name, "(full)|(reduced)"),
+      dataset = factor(
+        dataset, 
+        levels = c("reduced", "full"),
+        labels = c("23,036 (reduced)", "85,630 (full)")
+      ),
+      time = seconds / 60,
+      label = paste0(round(time, 1), " min"),
+      label = dplyr::case_when(
+        time == max(time) ~ paste0("\n", label),
+        TRUE ~ paste0(label, "\n")
+      ),
+      label_col = dplyr::case_when(
+        time == max(time) ~ "w",
+        TRUE ~ "b"
+      )
+    ) |> 
+    ggplot2::ggplot(ggplot2::aes(x = task, y = time, fill = dataset)) +
+    ggplot2::geom_col(position = "dodge") +
+    ggplot2::geom_text(
+      ggplot2::aes(label = label, colour = label_col),
+      position = ggplot2::position_dodge(width = 0.9),
+      show.legend = FALSE
+    ) +
+    ggplot2::scale_colour_manual(values = c("b" = "black", "w" = "white")) +
+    ggplot2::scale_fill_brewer(palette = "Paired") +
+    ggplot2::scale_y_continuous(expand = ggplot2::expansion(mult = c(0, 0.05))) +
+    ggplot2::labs(
+      x = NULL,
+      y = "Running time (min)",
+      fill = "Number of SNPs"
+    ) +
+    ggplot2::theme_bw() +
+    ggplot2::theme(
+      legend.position = "bottom",
+      panel.grid.major.x = ggplot2::element_blank(),
+      panel.grid.minor.y = ggplot2::element_blank()
+    )
+}
