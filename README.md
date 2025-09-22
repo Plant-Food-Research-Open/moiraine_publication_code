@@ -25,7 +25,7 @@ Sys.setenv(TAR_PROJECT = "main")
 targets::tar_make()
 
 # Save the autometric log (to avoid overriding it when running the pipeline
-# again)
+# again) and pipeline metadata
 fs::file_move("autometric.log", "output/autometric_main_targets.log")
 targets::tar_meta() |> readr::write_csv("output/meta_main_targets.csv")
 
@@ -34,6 +34,24 @@ source("make_manuscript_figures.R")
 
 # Prepare datasets for additional example datasets
 source("prepare_datasets.R")
+
+# Execute the targets pipeline (for analysis of full vs reduced genomics dataset)
+Sys.setenv(TAR_PROJECT = "li_genomics")
+targets::tar_make()
+
+# Save the autometric log and pipeline metadata
+fs::file_move("autometric.log", "output/autometric_li_genomics_targets.log")
+targets::tar_meta() |> readr::write_csv("output/meta_li_genomics_targets.csv")
+
+# Execute the targets pipeline (for analysis of EATRIS-Plus dataset)
+Sys.setenv(TAR_PROJECT = "eatris_plus")
+targets::tar_make()
+
+# Save the autometric log and pipeline metadata
+fs::file_move("autometric.log", "output/autometric_eatris_plus_targets.log")
+targets::tar_meta() |> readr::write_csv("output/meta_eatris_plus_targets.csv")
+
+quarto::quarto_render("supplementary_material_figures.qmd")
 ```
 
 If you are not familiar with the `targets` package, you can learn about it in the [targets user manual](https://books.ropensci.org/targets/).

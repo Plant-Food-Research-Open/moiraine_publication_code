@@ -79,6 +79,12 @@ fmeta_list <- eatrisplus_mae |>
   }) |> 
   rlang::set_names(omics_names)
 
+## To fill in missing features metadata for RNAseq data
+for (i in c("mrnaseq2", "mirnaseq_mature")) {
+  fmeta_list[[i]]$chromosome <- "chrom"
+  fmeta_list[[i]]$start <- 1
+  fmeta_list[[i]]$end <- 2
+}
 
 readr::write_csv(
   smeta, 

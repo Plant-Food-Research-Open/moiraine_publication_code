@@ -25,6 +25,7 @@ library(UpSetR)
 library(here)
 
 source(here("R/manuscript_figures_helper_functions.R"))
+Sys.setenv(TAR_PROJECT = "main")
 ```
 
 
@@ -370,6 +371,34 @@ Finally, DIABLO is run using the selected values for the number of components to
 
 \newpage
 
+# EATRIS-Plus dataset
+
+The EATRIS-Plus project [@AlonsoMultiomicsQualityAssessment2023], funded by the European Commission Horizon 2020 Research programme, aimed at providing a high-quality multi-omics dataset from a cohort of healthy patients, to be used in precision medicine studies. To this aim, 127 healthy individuals from the Czech Genome Project were recruited, and measurements from the following omics layers were collected: mRNAseq, miRNAseq, miRNAseq (qRT-PCR), proteomics, enzymatic methylation sequencing, lipidomics from two ionisation modes, as well as three targeted metabolomics datasets (acylcaritines, amino acids, very long chain fatty acids). In addition, a number of clinical variables are recorded for the patients, including age, sex, smoking status, blood type, BMI, and measurements such as leukocytes or hemoglobin levels. The pre-processed multi-omics dataset is publicly available on Zenodo [@thoenEATRISPlusMultiomicsData2024] as a `MultiAssayExperiment` object.
+
+For this analysis, we used the following omics layers:
+
+* mRNAseq (19,747 features) -- batch-adjusted and corrected values;
+
+* miRNAseq (2,130 features) -- batch- and cell type-adjusted values;
+
+* proteomics (1,393 features) -- values with missing values imputed;
+
+* enzymatic methylation sequencing (100,000 features) -- cell-type adjusted values for the 100,000 most variables CpG sites;
+
+* lipidomics from positive ionisation mode (196 features): transformed values;
+
+* lipidomics from negative ionisation mode (164 features): transformed values;
+
+* Acylcarnitines (33 features) -- batch-adjusted values with missing values imputed;
+
+* Amino acids (46 features)  -- batch-adjusted values with missing values imputed.
+
+# Analysis of the EATRIS-Plus dataset
+
+We give a brief overview of the analysis of the EATRIS-Plus dataset with moiraine. After importing the multi-omics dataset, the proteomics and two lipidomics datasets were centered and scaled. The RNAseq, miRNAseq, proteomics and enzymatic methylation datasets were then pre-filtered using sPLS-DA to retain at most 1,000 features, using patients sex as the outcome grouping variable. Sex was also used as the grouping variable for integration with DIABLO. 10-fold cross-validation repeated 10 times to assess the optimal number of latent components to construct. Values from 1 to 4 were tested; 3 was selected as the optimal value. Next, 10-fold cross-validation repeated 5 times was used to select the optimal number of features to retain for each latent component. The values tested were 10 and 30 for each omics dataset and latent component. The multi-omics dataset was also integrated using MOFA; a Gaussian likelihood was used for all omics datasets.
+
+\newpage
+
 # Supplementary Figures
 
 \setcounter{figure}{0}
@@ -414,6 +443,28 @@ make_autoplot_figure(
 )
 ```
 
+```{r fi-resource-usage-genomics}
+#| fig-cap: "Comparison of resource usage for pre-processing the reduced genomics dataset used in the example (with 23,036 SNPs) vs the full genomics dataset (with 85,630 SNPs). The black dots indicate the resident set size (RSS -- total amount of memory used) used over time, recorded every second. The purple vertical lines indicate the time at which the different steps in the pipeline (targets) are executed. The name of the longest steps is indicated."
+
+make_figure_runtime_genomics(
+  here("output/autometric_li_genomics_targets.log"),
+  here("output/meta_li_genomics_targets.csv")
+)
+```
+
+```{r change-targets-setup}
+#| include: false
+
+Sys.setenv(TAR_PROJECT = "eatris_plus")
+```
+
+
+```{r fi-running-time-eatrisplus}
+#| fig-cap: "Running time of two integration tools (DIABLO and MOFA) on the EATRIS-Plus multi-omics dataset that comprises 8 different omics layers."
+#| message: false
+
+plot_running_time()
+```
 
 \newpage
 

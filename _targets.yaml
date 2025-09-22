@@ -6,3 +6,7 @@ li_genomics:
   script: _targets_li_genomics.R
   store: _targets_li_genomics
   reporter_make: verbose_positives
+eatris_plus:
+  script: _targets_eatris_plus.R
+  store: _targets_eatris_plus
+  reporter_make: verbose_positives
