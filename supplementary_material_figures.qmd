@@ -455,7 +455,10 @@ make_figure_runtime_genomics(
 ```{r change-targets-setup}
 #| include: false
 
+## Creating the plot in a different code chunk to avoid the here package
+## startup message showing in the output
 Sys.setenv(TAR_PROJECT = "eatris_plus")
+p <- plot_running_time()
 ```
 
 
@@ -463,7 +466,7 @@ Sys.setenv(TAR_PROJECT = "eatris_plus")
 #| fig-cap: "Running time of two integration tools (DIABLO and MOFA) on the EATRIS-Plus multi-omics dataset that comprises 8 different omics layers."
 #| message: false
 
-plot_running_time()
+p
 ```
 
 \newpage
